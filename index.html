@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <style>
+            body {
+                margin: 0px;
+                box-sizing: border-box;
+                width: 100vw;
+                height: 100vh;
+                background-color: rgb(177, 175, 175);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+            }
+
+            .card {
+                width: 70vw;
+                height: 70vh;
+                background-color: rgb(236, 236, 236);
+                color: rgb(65, 65, 65);
+                border-radius: 30px;
+                opacity: 0;
+                transform: translateY(50px);
+                animation: fadeInUp 1s forwards;
+                position: relative;
+                z-index: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                box-sizing: border-box;
+                padding: 50px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .card-header {
+                text-align: center;
+                font-size: 2rem;
+                font-weight: bold;
+                animation: fadeIn 2s forwards;
+            }
+
+            .card-content {
+                flex-grow: 1;
+                margin-top: 20px;
+                font-size: 1.2rem;
+                line-height: 1.5;
+                animation: fadeIn 2s forwards;
+            }
+
+            .emoji {
+                position: absolute;
+                font-size: 6rem; 
+                animation: fall 3s infinite;
+                z-index: 0; 
+            }
+
+            .emoji:nth-child(1) {
+                left: 10%;
+                animation-delay: 0s;
+            }
+
+            .emoji:nth-child(2) {
+                left: 30%; 
+                animation-delay: 1s;
+            }
+
+            .emoji:nth-child(3) {
+                left: 50%;
+                animation-delay: 2s;
+            }
+
+            .emoji:nth-child(4) {
+                left: 70%; 
+                animation-delay: 3s;
+            }
+
+            .emoji:nth-child(5) {
+                left: 90%; 
+                animation-delay: 4s;
+            }
+
+            @keyframes fadeInUp {
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+
+            @keyframes fall {
+                0% {
+                    opacity: 0;
+                    transform: translateY(-100px);
+                }
+                50% {
+                    opacity: 1;
+                }
+                100% {
+                    opacity: 0;
+                    transform: translateY(100vh);
+                }
+            }
+
+            @media (max-width: 768px) {
+                .card {
+                    width: 90vw;
+                    height: 50vh;
+                    padding: 20px;
+                }
+
+                .card-header {
+                    font-size: 1.5rem;
+                }
+
+                .card-content {
+                    font-size: 1rem;
+                }
+
+                .emoji {
+                    font-size: 4rem;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="card">
+            <div class="card-header">류시님에게</div>
+            <div class="card-content">
+                <p>2월 14일이 발렌타인데이라는 사실을 잊고 있었습니다..</p>
+                <p>초콜릿 너무 잘 받았습니다.. 다시 한번 감사합니다....</p>
+                <p>지금 기프티콘을 살 수 업어서.. 이렇게 카드라도 만들어서.. 류시님에게 드립니다.. 
+                    급하게 만들어서 퀄리티가 좀.. 그래요.. 죄송합니다.. 
+                    류시님 해피 발렌타인데이..🍫🍫❤️</p>
+                <p>로드가..</p>
+            </div>
+        </div>
+        <div class="emoji">🍫</div>
+        <div class="emoji">❤️</div>
+        <div class="emoji">🍫</div>
+        <div class="emoji">❤️</div>
+        <div class="emoji">🍫</div>
+
+        <script>
+            document.querySelectorAll('.emoji').forEach(emoji => {
+                const randomLeft = Math.random() * 100;
+                emoji.style.left = `${randomLeft}%`;
+            });
+        </script>
+    </body>
+</html>
